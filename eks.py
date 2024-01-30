@@ -32,9 +32,8 @@ deployment = client.V1Deployment(
 )
 
 # Create the deployment
-
 api_instance = client.AppsV1Api(api_client)
-api_client = create_namespaced_deployment(
+api_instance.create_namespaced_deployment(
     namespace="default",
     body=deployment
 )
@@ -47,7 +46,6 @@ service = client.V1Service(
         ports=[client.V1ServicePort(port=5000)]
     )
 )
-
 
 # Create the service
 api_instance = client.CoreV1Api(api_client)
